@@ -24,7 +24,7 @@ export default function MyApp(props) {
 	return (
 		<CacheProvider value={cache}>
 			<Head>
-				<title>My page</title>
+				<title>Macro Link</title>
 				<meta
 					name="viewport"
 					content="initial-scale=1, width=device-width"

@@ -1,0 +1,26 @@
+{
+	"name": "macro-link",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"@astrajs/collections": "^0.0.13",
+		"@emotion/cache": "^11.1.3",
+		"@emotion/react": "^11.1.5",
+		"@emotion/server": "^11.0.0",
+		"@emotion/styled": "^11.1.5",
+		"@material-ui/core": "^4.11.3",
+		"@material-ui/icons": "^4.11.2",
+		"clsx": "^1.1.1",
+		"nanoid": "^3.1.22",
+		"next": "10.0.9",
+		"prop-types": "^15.7.2",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"valid-url": "^1.0.9"
+	}
+}

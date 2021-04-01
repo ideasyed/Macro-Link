@@ -4,7 +4,6 @@ import Layout from "../components/Layout";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { makeStyles } from "@material-ui/core/styles";
-import { LinkSharp } from "@material-ui/icons";
 import { List, Paper, ListItem, ListItemText } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({

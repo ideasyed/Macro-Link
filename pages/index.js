@@ -6,11 +6,13 @@ import UrlList from "../components/UrlList";
 import ShrinkButton from "../components/ShrinkButton";
 import { isUri } from "valid-url";
 import DialogModal from "../components/DialogModal";
+import AddDescription from "../components/AddDescription";
 
 const Index = memo(() => {
 	const { inputValue, changeInput, clearInput, keyInput } = useInputValue();
-    const { links, addLink, removeLink } = useLinks();
-    const [shrunkURLs, setShrunkURLs] = useState({});
+	const { links, addLink, removeLink } = useLinks();
+	const [shrunkURLs, setShrunkURLs] = useState({});
+	const [description, setDescription] = useState("");
 	const [loading, setLoading] = useState(false);
 	const clearInputAndAddLink = () => {
 		if (isUri(inputValue)) {
@@ -25,34 +27,38 @@ const Index = memo(() => {
 		var requestOptions = {
 			method: "POST",
 			headers: myHeaders,
-			body: JSON.stringify({ links }),
+			body: JSON.stringify({ links, description: description.trim() }),
 			redirect: "follow",
 		};
 
-        const response = await fetch("/api/shrinker", requestOptions);
-        const result = await response.json();
-        setShrunkURLs(result);
+		const response = await fetch("/api/shrinker", requestOptions);
+		const result = await response.json();
+		setShrunkURLs(result);
 	};
 	return (
 		<Layout>
-            <AddLink
-                inputValue={inputValue}
-                onInputChange={changeInput}
-                onButtonClick={clearInputAndAddLink}
-                onInputKeyPress={(event) =>
-                    keyInput(event, clearInputAndAddLink)
-                }
-            />
-            <UrlList
-                items={links}
-                onItemRemove={(idx) => removeLink(idx)}
-            />
-            <ShrinkButton
-                onButtonClick={shrinkLinks}
-                disableShrink={links.length ? false : true}
-                loading={loading}
-            ></ShrinkButton>
-            <DialogModal open={shrunkURLs.alias ? true : false} aliasUrl={shrunkURLs.fullURL}></DialogModal>
+			<AddDescription
+				inputValue={description}
+				onInputChange={(event) => setDescription(event.target.value)}
+			/>
+			<AddLink
+				inputValue={inputValue}
+				onInputChange={changeInput}
+				onButtonClick={clearInputAndAddLink}
+				onInputKeyPress={(event) =>
+					keyInput(event, clearInputAndAddLink)
+				}
+			/>
+			<UrlList items={links} onItemRemove={(idx) => removeLink(idx)} />
+			<ShrinkButton
+				onButtonClick={shrinkLinks}
+				disableShrink={links.length ? false : true}
+				loading={loading}
+			></ShrinkButton>
+			<DialogModal
+				open={shrunkURLs.alias ? true : false}
+				aliasUrl={shrunkURLs.fullURL}
+			></DialogModal>
 		</Layout>
 	);
 });

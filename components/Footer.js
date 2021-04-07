@@ -21,17 +21,17 @@ const useStyles = makeStyles((theme) => ({
 			paddingBottom: ".3em",
 			textDecoration: "none",
 		},
-    },
-    footer: {
-        margin: "25px",
-        color: theme.palette.primary.main,
-        textAlign: "center"
-    }
+	},
+	footer: {
+		margin: "25px",
+		color: theme.palette.primary.main,
+		textAlign: "center",
+	},
 }));
 
 const Footer = () => {
 	const styles = useStyles();
-    return (
+	return (
 		<Typography className={styles.footer}>
 			Made with <Favorite className={styles.heartEmoji} /> by{" "}
 			<a
@@ -42,7 +42,7 @@ const Footer = () => {
 			>
 				IdeaSyed
 			</a>
-            </Typography>
+		</Typography>
 	);
 };
 export default Footer;

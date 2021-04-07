@@ -1,19 +1,19 @@
-import { memo } from 'react';
+import { memo } from "react";
 import {
-  ListItem,
-  IconButton,
-  ListItemText,
-  ListItemSecondaryAction,
-} from '@material-ui/core';
-import DeleteOutlined from '@material-ui/icons/DeleteOutlined';
-const UrlListItem = memo(props => (
-  <ListItem divider={props.divider}>
-    <ListItemText primary={props.text} />
-    <ListItemSecondaryAction>
-      <IconButton onClick={props.onButtonClick}>
-        <DeleteOutlined />
-      </IconButton>
-    </ListItemSecondaryAction>
-  </ListItem>
+	ListItem,
+	IconButton,
+	ListItemText,
+	ListItemSecondaryAction,
+} from "@material-ui/core";
+import DeleteOutlined from "@material-ui/icons/DeleteOutlined";
+const UrlListItem = memo(({divider, text, onButtonClick}) => (
+	<ListItem divider={divider}>
+		<ListItemText primary={text} />
+		<ListItemSecondaryAction>
+			<IconButton onClick={onButtonClick}>
+				<DeleteOutlined />
+			</IconButton>
+		</ListItemSecondaryAction>
+	</ListItem>
 ));
 export default UrlListItem;

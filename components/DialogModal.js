@@ -7,25 +7,20 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Link from "next/link";
 import Router from "next/router";
 
-const DialogModal = ({
-    open,
-    aliasUrl
-}) => {
-    const handleClose = () => Router.reload();
+const DialogModal = ({ open, aliasUrl }) => {
+	const handleClose = () => Router.reload();
 	return (
 		<div>
-			<Dialog
-                fullScreen={false}
-				open={open}
-				onClose={handleClose}
-			>
+			<Dialog fullScreen={false} open={open} onClose={handleClose}>
 				<DialogTitle id="responsive-dialog-title">
 					Success, Shrunk Link!
 				</DialogTitle>
 				<DialogContent>
 					<DialogContentText>
-							<p>Thank you for using this app, copy and share the
-							link!</p>
+						<p>
+							Thank you for using this app, copy and share the
+							link!
+						</p>
 						<center>
 							<Link href={aliasUrl}>
 								<a>{aliasUrl}</a>

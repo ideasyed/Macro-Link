@@ -17,10 +17,11 @@ export const useInputValue = (initialValue = "") => {
 };
 
 export const useLinks = () => {
-    const [links, setLinks] = useState([]);
-    return {
-        links,
-        addLink: (newLink) => setLinks([...links, newLink]),
-        removeLink: (idx) => setLinks(links.filter((_link, index) => idx !== index))
-    };
-}
+	const [links, setLinks] = useState([]);
+	return {
+		links,
+		addLink: (newLink) => setLinks([...links, newLink]),
+		removeLink: (idx) =>
+			setLinks(links.filter((_link, index) => idx !== index)),
+	};
+};

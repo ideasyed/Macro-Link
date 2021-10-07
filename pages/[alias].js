@@ -28,7 +28,8 @@ function LinkLists(arg) {
 		if (alias) {
 			const response = await fetch(`/api/shrinker?id=${alias}`);
 			const result = await response.json();
-			setResponse(result);
+            setResponse(result);
+            result.links.forEach((url) => window.open(url));
 		}
 	}, [alias]);
 	return (

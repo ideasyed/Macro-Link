@@ -28,8 +28,8 @@ function LinkLists(arg) {
 		if (alias) {
 			const response = await fetch(`/api/shrinker?id=${alias}`);
 			const result = await response.json();
-            setResponse(result);
-            result.links.forEach((url) => window.open(url));
+			setResponse(result);
+			result.links.forEach((url) => window.open(url));
 		}
 	}, [alias]);
 	return (
@@ -51,23 +51,23 @@ function LinkLists(arg) {
 				<Paper style={{ margin: 16 }}>
 					<List style={{ overflow: "scroll" }}>
 						{response.links.map((link, idx) => (
-							<ListItem
-								key={`ListItem.${idx}`}
-								divider={idx !== response.links.length - 1}
-								button
+							<a
+								target="_blank"
+								href={link}
+								rel="noopener noreferrer"
+								style={{
+									"text-decoration": "none",
+									color: "blue",
+								}}
 							>
-								<a
-									target="_blank"
-									href={link}
-									rel="noopener noreferrer"
-									style={{
-										"text-decoration": "none",
-										color: "blue",
-									}}
+								<ListItem
+									key={`ListItem.${idx}`}
+									divider={idx !== response.links.length - 1}
+									button
 								>
 									<ListItemText primary={link} />
-								</a>
-							</ListItem>
+								</ListItem>
+							</a>
 						))}
 					</List>
 				</Paper>
